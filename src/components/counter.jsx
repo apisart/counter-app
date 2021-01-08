@@ -10,11 +10,12 @@ import imgDolphin from "../img/Dolphin.png";
 
 class Counter extends Component {
 	constructor(props) {
-		super(props);
+		super(props);	// to call the ctor of the parent class "React.Component"	// need to calls this to avoid the following error: 'this' is not allowed before super()
 
 		this.state = {
 			count: 0,
 			arrTag: ["tagA", "tagB", "tagC"],
+			productId: 101, 
 			// imgUrl: imgDolphin,
 			// imgUrl: "https://picsum.photos/id/237/200/300",
 			imgUrl: "https://picsum.photos/200",	// this will generate a random picture of 200*200 pixel.
@@ -61,47 +62,6 @@ class Counter extends Component {
 	} // ctor
 
 	
-
-	/**
-	 * Ref: https://stackoverflow.com/questions/35287949/react-with-es7-uncaught-typeerror-cannot-read-property-state-of-undefined
-	 * 		https://stackoverflow.com/questions/61229720/cannot-access-props-from-function-inside-react-component
-	 */
-	// onClick_Handler__setTimeout() {	// NOT WK: Uncaught TypeError: Cannot read property 'clickedCount' of undefined
-	onClick_Handler__setTimeout = () => {	// WK
-	// onClick_Handler__setTimeout = async () => {	// WK
-		if (this.click__.clickedCount === 1) {
-			clearTimeout(this.click__.timerClick);	// reset
-			this.click__.clickedCount = 0;	// reset
-			this.click__.isClicked = false;	// reset
-
-			this.onClick_Action();
-		}
-	} // onClick_Handler__setTimeout
-	// onClick_Handler() {	// NOT WK: Uncaught TypeError: Cannot read property 'clickedCount' of undefined
-	onClick_Handler = () => {	// WK
-	// onClick_Handler = async () => {	// WK
-		this.click__.clickedCount++;
-		console.log(this.click__.clickedCount);	// mai: for debug only
-
-		this.click__.timerClick = setTimeout(this.onClick_Handler__setTimeout, this.click__.DifferentiatingTime);
-		
-		if (this.click__.isClicked === false && this.click__.clickedCount >= 2) {
-			clearTimeout(this.click__.timerClick);	// reset
-			this.click__.clickedCount = 0;	// reset
-
-			this.onDoubleClick_Action();
-		}
-	} // onClick_Handler
-	onClick_Action() {
-		// alert('Single-Click!');
-		console.log('Single-Click!');
-	} // onClick_Action
-	onDoubleClick_Action() {
-		// alert('Double-Click!');
-		console.log('Double-Click!');
-	} // onDoubleClick_Action
-
-
 
 	render() {
 		// let classSpan = "badge m-2 badge-";
@@ -152,15 +112,27 @@ class Counter extends Component {
 
 				{/* SubExA01:v04: */}
 				<span style={this.stylesSpan} className={this.getClassSpan()}>{this.format__count()}</span>
+				<br />
+				<span style={this.stylesSpan} className={"badge badge-info m-2"}>{<h2>{this.state.productId}</h2>}</span>
 
 				{this.renderTag()}
 
 				<button
-					className="btn btn-secondary mb-3" 
+					className="btn btn-secondary m-3" 
 					style={this.stylesBtn} 
-					onClick={this.onClick_Handler}
+					// onClick={this.btnInc__onClick_Handler}
+					// onClick={this.inclementTotal}
+					onClick={() => this.inclementTotal(this.state.productId)}
 				>
 					Increment
+				</button>
+				<button
+					className="btn btn-secondary m-3" 
+					style={this.stylesBtn} 
+					// onClick={this.declementTotal}
+					onClick={() => this.declementTotal(this.state.productId)}
+				>
+					Decrement
 				</button>
 			</React.Fragment>
 		);
@@ -169,10 +141,69 @@ class Counter extends Component {
 
 
 
-	renderTag()
-	{
+	/**
+	 * Ref: https://stackoverflow.com/questions/35287949/react-with-es7-uncaught-typeerror-cannot-read-property-state-of-undefined
+	 * 		https://stackoverflow.com/questions/61229720/cannot-access-props-from-function-inside-react-component
+	 * 
+	 * 		https://www.youtube.com/watch?v=Ke90Tje7VS0
+	 * 		In the time of 1:07:33: Arrow function inherited the "this" keyword.
+	 */
+	// btnInc__onClick_Handler__setTimeout() {	// NOT WK: Uncaught TypeError: Cannot read property 'clickedCount' of undefined
+	btnInc__onClick_Handler__setTimeout = () => {	// WK
+	// btnInc__onClick_Handler__setTimeout = async () => {	// WK
+		if (this.click__.clickedCount === 1) {
+			clearTimeout(this.click__.timerClick);	// reset
+			this.click__.clickedCount = 0;	// reset
+			this.click__.isClicked = false;	// reset
+
+			this.btnInc__onClick_Action();
+		}
+	} // btnInc__onClick_Handler__setTimeout
+	// btnInc__onClick_Handler() {	// NOT WK: Uncaught TypeError: Cannot read property 'clickedCount' of undefined
+	btnInc__onClick_Handler = () => {	// WK
+	// btnInc__onClick_Handler = async () => {	// WK
+		this.click__.clickedCount++;
+		// console.log(this.click__.clickedCount);	// mai: for debug only
+
+		this.click__.timerClick = setTimeout(this.btnInc__onClick_Handler__setTimeout, this.click__.DifferentiatingTime);
+		
+		if (this.click__.isClicked === false && this.click__.clickedCount >= 2) {
+			clearTimeout(this.click__.timerClick);	// reset
+			this.click__.clickedCount = 0;	// reset
+
+			this.btnInc__onDoubleClick_Action();
+		}
+	} // btnInc__onClick_Handler
+	btnInc__onClick_Action() {
+		// alert('Single-Click!');
+		// console.log('Single-Click!');
+
+		this.inclementTotal();
+	} // btnInc__onClick_Action
+	btnInc__onDoubleClick_Action() {
+		// alert('Double-Click!');
+		// console.log('Double-Click!');
+	} // btnInc__onDoubleClick_Action
+
+
+
+	inclementTotal = (productId) => {
+		this.setState({count: this.state.count + 1});
+		console.log(`productId{productId}`);
+	} // inclementTotal
+	declementTotal = (productId) => {
+		if (this.state.count === 0)
+			return;
+
+		this.setState({count: this.state.count - 1});
+		console.log(`productId{productId}`);
+	} // declementTotal
+
+
+
+	renderTag()	{
 		if (this.state.arrTag.length === 0)
-			return <p>There is no tag!</p>;
+			return <div style={{backgroundColor: "green"}}>There is no tag!</div>;
 
 		return (
 			// v01:
