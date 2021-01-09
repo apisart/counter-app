@@ -58,7 +58,7 @@ class Counter extends Component {
 			isClicked: false,
 		} // click__
 
-		// this.onClick_Handler = this.onClick_Handler.bind(this)	// WK
+		// this.btnInc__onClick_Handler = this.btnInc__onClick_Handler.bind(this)	// WK
 	} // ctor
 
 	
