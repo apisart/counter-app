@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/counter-app/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/counter-app/static/js/main.28970e02.chunk.js",
-    "main.js.map": "/counter-app/static/js/main.28970e02.chunk.js.map",
-    "runtime-main.js": "/counter-app/static/js/runtime-main.1c876cc5.js",
-    "runtime-main.js.map": "/counter-app/static/js/runtime-main.1c876cc5.js.map",
+    "main.js": "/counter-app/static/js/main.b4d1f4e1.chunk.js",
+    "main.js.map": "/counter-app/static/js/main.b4d1f4e1.chunk.js.map",
+    "runtime-main.js": "/counter-app/static/js/runtime-main.9b60bae1.js",
+    "runtime-main.js.map": "/counter-app/static/js/runtime-main.9b60bae1.js.map",
     "static/css/2.95f25948.chunk.css": "/counter-app/static/css/2.95f25948.chunk.css",
-    "static/js/2.6bfad570.chunk.js": "/counter-app/static/js/2.6bfad570.chunk.js",
-    "static/js/2.6bfad570.chunk.js.map": "/counter-app/static/js/2.6bfad570.chunk.js.map",
-    "static/js/3.12b68a4c.chunk.js": "/counter-app/static/js/3.12b68a4c.chunk.js",
-    "static/js/3.12b68a4c.chunk.js.map": "/counter-app/static/js/3.12b68a4c.chunk.js.map",
+    "static/js/2.b58ccff4.chunk.js": "/counter-app/static/js/2.b58ccff4.chunk.js",
+    "static/js/2.b58ccff4.chunk.js.map": "/counter-app/static/js/2.b58ccff4.chunk.js.map",
+    "static/js/3.46432147.chunk.js": "/counter-app/static/js/3.46432147.chunk.js",
+    "static/js/3.46432147.chunk.js.map": "/counter-app/static/js/3.46432147.chunk.js.map",
     "index.html": "/counter-app/index.html",
     "static/css/2.95f25948.chunk.css.map": "/counter-app/static/css/2.95f25948.chunk.css.map",
     "static/css/main.ab7136cd.chunk.css.map": "/counter-app/static/css/main.ab7136cd.chunk.css.map",
-    "static/js/2.6bfad570.chunk.js.LICENSE.txt": "/counter-app/static/js/2.6bfad570.chunk.js.LICENSE.txt",
+    "static/js/2.b58ccff4.chunk.js.LICENSE.txt": "/counter-app/static/js/2.b58ccff4.chunk.js.LICENSE.txt",
     "static/media/Dolphin.2a21f408.png": "/counter-app/static/media/Dolphin.2a21f408.png",
     "static/media/logo.6ce24c58.svg": "/counter-app/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1c876cc5.js",
+    "static/js/runtime-main.9b60bae1.js",
     "static/css/2.95f25948.chunk.css",
-    "static/js/2.6bfad570.chunk.js",
+    "static/js/2.b58ccff4.chunk.js",
     "static/css/main.ab7136cd.chunk.css",
-    "static/js/main.28970e02.chunk.js"
+    "static/js/main.b4d1f4e1.chunk.js"
   ]
 }
